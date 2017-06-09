@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Tasks</h1></br>
+    <ul>
+        {% load static %}
+        {% for task in tasks %}
+            <table><tr>
+            <th valign="top"><div ></div></th>
+            <th><div"><a href='/todolists/{{ task.tasklist_id }}/tasks/{{task.id}}'>{{ task.name }}</a></div>
+            {% if Button_Create %}<a href="/todolists/{{ task.tasklist_id }}/delete/{{task.id}}">Delete</a>{% endif %}
+             
+            <p>Description: {{ task.description }}</p>
+            <p>date_created : {{ task.date_created }}</p>
+            {% if task.tags_string %}
+            <p>tags_string : {{ task.tags_string }}</p>
+            {% endif %}
+            {% if task.completed %}
+            {% endif %}
+            </th></tr></table>
+        {% endfor %}
+    </ul>
+    {% if Button_Create %}<div><a href="/todolists/{{list_id}}/create_task" class="btn btn-secondary"> Create new task!</a></div>{% endif %}
+
+{% endblock %}

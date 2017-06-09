@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load rest_framework %}
+{% load staticfiles %}
+<html lang="en">
+<font face="Arial">
+    
+    <head>
+
+
+
+
+
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/g/jquery@3.2.1,bootstrap@4.0.0-alpha.6(js/bootstrap.js),bootstrap.responsive-tabs@0.0.1(responsive-tabs.js)"></script>
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">-->
+    </head>
+    
+    <body>
+        
+        <div class="topnav" id="topbar">
+                <center> <a href="/todolists/">My Lists</a>
+                <a style="margin-left: 5%" href="/todolists/shared/">Received Lists</a>
+                <a style="margin-left: 5%" href="/logout/">Logout</a>
+                </center> 
+        </div>
+     <div class="container">
+    {% block content %}{% endblock %}
+    </div>
+
+    </body>
+</font>
+</html>

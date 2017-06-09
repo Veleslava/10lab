@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <h1>Task Lists</h1></br>
+    <ul>
+        {% for tasklist in tasklists %}
+            
+            <div>
+            {% if Button_Create %}<a href='/todolists/{{ tasklist.id }}'>{{ tasklist.name }}</a>
+            {% else %}<a href='/todolists/shared/{{ tasklist.id }}'>{{ tasklist.name }}</a>
+            {% endif %} <br> Owner: {{ tasklist.owner }} {%if Button_Create %}<br> <a href="/todolists/{{ tasklist.id }}/edit/">Edit</a>  <a href="/todolists/{{ tasklist.id }}/delete/">Delete</a> <a  href="/todolists/{{ tasklist.id }}/share/">Share</a></br></br>{% endif %}
+        {% endfor %}
+    </ul>
+
+    {%if Button_Create %}
+        <a href="/todolists/create/" class="btn btn-secondary">Create new task list</a>
+    {% endif %}
+
+<body>
+{% endblock %}
